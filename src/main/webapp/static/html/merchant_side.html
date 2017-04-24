@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+</head>
+<body>
+	<div>
+		模拟商户提交缴款信息
+	</div>
+	<br><br>
+	<div>
+		业务订单号:<input type="text" id="bussnessTradeNo" value="DD0001"/><br><br>
+		缴款金额：<input type="text" id="amt" value="2000"/><br><br>
+		订单日期：<input type="text" id="orderDate" value="20170421"/><br><br>
+		订单时间：<input type="text" id="orderTime" value="183015"/><br><br>
+		商户名称：<input type="text" id="merchantName" value="省会计考试中心"/><br><br>
+		交易标题：<input type="text" id="orderTitle" value="注册会计师考试缴费"/><br><br>
+		交易描述：<input type="text" id="orderDesc" value="福建省注册会计师考试网上缴费"/><br><br><br><br>
+		
+		订单详情：<input type="text" id="orderDetail" value="业务系统暴露订单信息"/><br><br>
+		商户id：<input type="text" id="merchantId" value="32df344522ddl32l2j3h4h552j2jddfx"/><br><br>
+		交易币种：<input type="text" id="currencyCode" value="1"/><br><br>
+		下单的用户代理信息：<input type="text" id="agent" value="福州博思缴费代理"/><br><br>
+		下单的用户代理ip：<input type="text" id="agentIp" value="192.168.2.33"/><br><br>
+		支付成功后回调的业务应用的url：<input type="text" id="returnUrl" value="http://wsbm.fjkj.gov.cn/myServlet?action=main&param=xxxx&sign=xxx"/><br><br>
+		支付成功后异步通知业务应用的url：<input type="text" id="notifyUrl" value="http://wsbm.fjkj.gov.cn/myServlet?action=main&param=xxxx&sign=22xxx"/><br><br>
+		指定的收款账户id：<input type="text" id="assignAccountId" value="300443321"/><br><br>
+		数据签名：<input type="text" id="sign" value="cebf1107f719fa7a8fcfa44c9c3d7de5"/><br><br>
+		
+		
+		<input type="button" id="btn-toCashierdesk" value="去缴款"/>
+
+	</div>
+	
+</body>
+</html>
+
+ <script data-main="../js/module/merchant_side.js" src="../js/lib/require.js"></script>

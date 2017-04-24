@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+</head>
+<body>
+	<div>
+		E缴通收银台V2.0
+		<br>
+	</div>
+	
+	<!-- 订单信息 -->
+	<div>
+		订单信息：<br>
+		业务订单号:<span id="order_id"></span>
+		缴款金额：<span id="amt"></span>
+		订单日期：<span id="orderDate"></span><br>
+		执收单位：<span id="merchantName"></span>
+		缴款人：<span id="memberName"></span>
+		交易标题：<span id="orderTitle"></span>
+		交易描述：<span id="orderDesc"></span>
+		<br><br><br><br>
+	<div>
+	
+	<!-- 登录信息 -->
+	<div id="div_login">
+		会员登录<br><br>
+      	用户名:<input type="text" id="username"/><br>
+      	密码:<input type="password" id="password"/><br>
+      	校验码：<input type="text" id="checkcode"/><br><br>
+		<input type="button" id="btn_loginToPay" value="登录付款"/>
+	</div>
+	
+	<!-- 选择渠道信息 -->
+	<div id="div_channel">
+		网银支付<br>
+		工商银行&nbsp;&nbsp;&nbsp;&nbsp;农业银行。。。<br>
+		<input type="button" id="btn_selectChannel" value="确认无误，下一步"/>
+	</div>
+	
+	<!-- 支付结果 -->
+	<div id="div_payResult">
+		该笔订单支付成功！<br>
+		<input type="button" id="btn_toMerchant" value="返回商户"/>
+	</div>
+	
+</body>
+</html>
+
+ <script data-main="../js/module/index.js" src="../js/lib/require.js"></script>

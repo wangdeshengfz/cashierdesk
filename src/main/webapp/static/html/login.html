@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <title>E缴通平台-登录</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+</head>
+
+<body style="background:#f9f9f9;">
+
+	<div class=".login-bd">
+     <form>
+         <div>
+             <input type="text" id="username" placeholder="用户名" />
+         </div>
+         <div class="form-group">
+             <input type="password" id="password" placeholder="密码" />
+         </div>
+         <div style="display: none;">
+             <label>
+                 <input type="checkbox" class="chk"> 记住用户名
+             </label>
+         </div>
+         <div>
+         <button type="button" onclick="login()" id="btn-login">登&nbsp;&nbsp;&nbsp;&nbsp;录</button>
+         </div>
+     </form>
+    </div>
+    <script data-main="../js/common/login.js" src="../js/lib/require.js"  async="false"></script>
+</body>
+
+</html>

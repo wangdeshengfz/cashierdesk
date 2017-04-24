@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://java.sun.com/xml/ns/javaee"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+	version="3.0">
+	<display-name>cashierdesk Web Application</display-name>
+	<!--================ sring配置 =============== -->
+	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>classpath:applicationContext.xml</param-value>
+	</context-param>
+	<listener>
+		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener>
+	<!--=============== 启动初始化监听配置 ============= -->
+	<listener>
+		<listener-class>com.bosssoft.itfinance.epay.v2.cashierdesk.common.servlet.AutoLoaderListener</listener-class>
+	</listener>
+	<!--=============== springMVC配置 ============= -->
+	<servlet>
+		<servlet-name>spring-servlet</servlet-name>
+		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+		<init-param>
+			<param-name>contextConfigLocation</param-name>
+			<param-value>classpath:spring-servlet.xml</param-value>
+		</init-param>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>spring-servlet</servlet-name>
+		<url-pattern>/api/*</url-pattern>
+	</servlet-mapping>
+
+	<!--=============== 过滤器配置 ================== -->
+	<filter>
+		<filter-name>encodingFilter</filter-name>
+		<filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+		<init-param>
+			<param-name>encoding</param-name>
+			<param-value>UTF-8</param-value>
+		</init-param>
+		<init-param>
+			<param-name>forceEncoding</param-name>
+			<param-value>true</param-value>
+		</init-param>
+	</filter>
+	<filter-mapping>
+		<filter-name>encodingFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+	<!--===============url、参数安全检查 security权限过滤================== -->
+<!--     <filter>
+		<filter-name>urlSecurityFilter</filter-name>
+		<filter-class>
+			com.cagtc.farm.common.security.XssFilter
+		</filter-class>
+		 <init-param>
+	       <param-name>homePage</param-name>    
+	       <param-value>index.htm</param-value>
+	     </init-param>
+	</filter>
+	<filter-mapping>
+		<filter-name>urlSecurityFilter</filter-name>
+		<url-pattern>*.htm</url-pattern>
+	</filter-mapping> --> 
+	
+
+	<welcome-file-list>
+		<welcome-file>index.html</welcome-file>
+	</welcome-file-list>
+</web-app>

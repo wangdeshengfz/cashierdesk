@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://code.alibabatech.com/schema/dubbo
+        http://code.alibabatech.com/schema/dubbo/dubbo.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <context:property-placeholder location="classpath:dubbo-consumer-test-setting.properties"/>
+
+	<!-- 提供方应用信息，用于计算依赖关系 -->
+	<dubbo:application name="cashierdesk_comsumer_test" />
+	
+ 	<!-- 使用zookeeper注册中心暴露服务地址  配置格式 172.18.160.44:2181-->
+ 	 <dubbo:registry id="dubboAddr" protocol="zookeeper" address="${dubbo.registry.address}" 
+ 	 	default="false"/>
+
+	<!-- 渠道服务 -->
+	<dubbo:reference id="channelTradeOperation" interface="com.bosssoft.itfinance.epay.v2.channel.common.api.ChannelTradeOperation" 
+		registry="dubboAddr" timeout="5000" retries="0" version="1.0.0"></dubbo:reference>
+
+	<!-- 订单服务 -->
+	<dubbo:reference id="orderTradeOperation" interface="com.bosssoft.itfinance.epay.v2.trade.common.api.OrderTradeOperation" 
+		registry="dubboAddr" timeout="5000" retries="0" version="1.0.0"></dubbo:reference>
+	<dubbo:reference id="payTradeOperation" interface="com.bosssoft.itfinance.epay.v2.trade.common.api.PayTradeOperation" 
+		registry="dubboAddr" timeout="5000" retries="0" version="1.0.0"></dubbo:reference>
+
+</beans>
